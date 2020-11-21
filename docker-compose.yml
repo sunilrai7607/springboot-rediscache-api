@@ -1,0 +1,27 @@
+version: '3'
+services:
+  springboot-rediscache-api:
+    build:
+      context: .
+      args:
+        version: 0.0.1
+      dockerfile: Dockerfile
+    depends_on:
+      - redis-server
+    ports:
+      - "8080:8080"
+    networks:
+      - spring-boot-redis-network
+    links:
+      - redis-server
+  redis-server:
+    image: redis
+    command: [ "redis-server", "--protected-mode", "no" ]
+    ports:
+      - "6379:6379"
+    networks:
+      - spring-boot-redis-network
+
+networks:
+  spring-boot-redis-network:
+    driver: bridge

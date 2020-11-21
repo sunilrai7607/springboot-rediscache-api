@@ -1,0 +1,25 @@
+spring:
+  profiles:
+    - local
+  session:
+    store-type: redis
+  cache:
+    type: redis
+    redis:
+      time-to-live: 18000 # 30 minutes
+      use-key-prefix: true
+      cache-null-values: false
+    cache-names:
+      - user-session, UserProfile
+  redis:
+    host: redis-server
+    port: 6379
+    jedis:
+      pool:
+        max-active: 7
+        max-idle: 8
+        min-idle: 2
+        max-wait: 1ms
+
+redis:
+  enabled: true
