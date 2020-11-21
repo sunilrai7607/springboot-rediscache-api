@@ -163,6 +163,7 @@ Note: Use the Terminal in your idea or run the below commands at your project ro
 % ./gradlew clean build
 % docker-compose up --build
 ```
+Run the curl command to see the output
 ```commandline
 % curl -v http://localhost:8080/api/v1/redis-api/2
 * TCP_NODELAY set
